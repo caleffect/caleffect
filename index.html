@@ -13,7 +13,6 @@
             --text-sub: #a0a0aa;
             --border: #2a2a32;
             --green: #4ade80;
-            --red: #f87171;
         }
 
         * {
@@ -110,63 +109,68 @@
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
-        /* Service Button Cards */
+        /* Service Cards */
         .service-card {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 18px 24px;
-            background: rgba(255, 255, 255, 0.03);
+            padding: 18px 22px;
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border);
             border-radius: 14px;
             color: var(--text-main);
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 500;
             transition: all 0.2s ease;
-            cursor: pointer;
         }
 
-        /* Hover effect for available services */
-        .service-card.available:hover {
-            background: rgba(255, 255, 255, 0.08);
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.06);
             border-color: var(--accent);
             transform: translateY(-2px);
         }
 
-        /* Disabled state for unavailable services */
-        .service-card.unavailable {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        /* Badges */
-        .badge {
-            font-size: 0.75rem;
-            font-weight: 700;
+        /* Status Indicator Alignment */
+        .status-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
             letter-spacing: 0.5px;
-            padding: 4px 10px;
-            border-radius: 20px;
             text-transform: uppercase;
         }
 
-        .badge.available {
-            color: var(--green);
-            background: rgba(74, 222, 128, 0.1);
-            border: 1px solid rgba(74, 222, 128, 0.3);
+        .status-text.open {
+            color: rgba(255, 255, 255, 0.85);
         }
 
-        .badge.unavailable {
-            color: var(--red);
-            background: rgba(248, 113, 113, 0.1);
-            border: 1px solid rgba(248, 113, 113, 0.3);
+        .status-text.closed {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-dot.active {
+            background-color: var(--green);
+            box-shadow: 0 0 10px var(--green);
+        }
+
+        .status-dot.inactive {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         /* Footer */
@@ -197,32 +201,50 @@
 
         <!-- Main Services Box -->
         <main class="services-box">
-            <!-- Available Option linking to commissions.html -->
-            <a href="commissions.html" class="service-card available">
+            <!-- Commissions (Open) -->
+            <a href="commissions.html" class="service-card">
                 <span>Commissions</span>
-                <span class="badge available">Available</span>
+                <div class="status-wrapper">
+                    <span class="status-text open">OPEN</span>
+                    <span class="status-dot active"></span>
+                </div>
             </a>
 
-            <!-- Unavailable Options -->
-            <div class="service-card unavailable">
+            <!-- Audio Promo (Closed) -->
+            <a href="audiopromo.html" class="service-card">
                 <span>Audio Promo</span>
-                <span class="badge unavailable">Unavailable</span>
-            </div>
+                <div class="status-wrapper">
+                    <span class="status-text closed">CLOSED</span>
+                    <span class="status-dot inactive"></span>
+                </div>
+            </a>
 
-            <div class="service-card unavailable">
+            <!-- Publicity (Closed) -->
+            <a href="publicity.html" class="service-card">
                 <span>Publicity</span>
-                <span class="badge unavailable">Unavailable</span>
-            </div>
+                <div class="status-wrapper">
+                    <span class="status-text closed">CLOSED</span>
+                    <span class="status-dot inactive"></span>
+                </div>
+            </a>
 
-            <div class="service-card unavailable">
+            <!-- Short Video Work (Closed) -->
+            <a href="workshorts.html" class="service-card">
                 <span>Short Video Work</span>
-                <span class="badge unavailable">Unavailable</span>
-            </div>
+                <div class="status-wrapper">
+                    <span class="status-text closed">CLOSED</span>
+                    <span class="status-dot inactive"></span>
+                </div>
+            </a>
 
-            <div class="service-card unavailable">
+            <!-- Long Video Work (Closed) -->
+            <a href="worklongshtml" class="service-card">
                 <span>Long Video Work</span>
-                <span class="badge unavailable">Unavailable</span>
-            </div>
+                <div class="status-wrapper">
+                    <span class="status-text closed">CLOSED</span>
+                    <span class="status-dot inactive"></span>
+                </div>
+            </a>
         </main>
 
         <footer>
