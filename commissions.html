@@ -47,31 +47,31 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.3);
             flex-wrap: wrap;
             gap: 12px;
         }
 
-        /* Left Side: Home Button */
+        /* Left Side: Arrow + Home Icon (No Text) */
         .home-btn {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
+            gap: 6px;
+            padding: 10px 14px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border);
             border-radius: 12px;
             color: var(--text-main);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
             transition: all 0.2s ease;
         }
 
         .home-btn svg {
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             fill: currentColor;
         }
 
@@ -85,7 +85,7 @@
         /* Right Side: Section Links */
         .nav-links {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .nav-link-btn {
@@ -98,7 +98,6 @@
             font-size: 0.9rem;
             font-weight: 500;
             transition: all 0.2s ease;
-            cursor: pointer;
         }
 
         .nav-link-btn:hover {
@@ -107,15 +106,79 @@
             border-color: var(--border);
         }
 
-        /* Content Box Placeholder */
+        /* Page Title (Outside Div) */
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        /* Content Box */
         .content-box {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 35px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .section-header {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
             color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        /* Steps List */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 18px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 14px;
+        }
+
+        .step-number {
+            min-width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        .step-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .step-content p {
+            color: var(--text-sub);
+            font-size: 0.92rem;
             line-height: 1.6;
         }
 
@@ -134,13 +197,12 @@
     <div class="wrapper">
         <!-- Navigation Bar -->
         <nav class="nav-bar">
-            <!-- Left: Home Arrow + Icon -->
+            <!-- Left: Arrow + Home Icon -->
             <a href="index.html" class="home-btn" title="Back to Home">
+                <span>←</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <!-- Home Icon SVG -->
                     <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 17-14 32.1-31 32.1h-96c-17 0-32-15-32-32V352h-64v96c0 17-15 32-32 32H128c-17 0-31-15-31-32l.7-160.2H65c-17 0-32-14.1-32-32.1 0-9 3-17 10-24L267.3 14.3c11.6-11 31.8-11 43.4 0l224.3 217.2c7.2 7 10.8 15 10.8 24z"/>
                 </svg>
-                <span>← Home</span>
             </a>
 
             <!-- Right: Section Buttons -->
@@ -151,10 +213,60 @@
             </div>
         </nav>
 
-        <!-- Main Content Area -->
-        <main class="content-box">
-            <h2 style="color: var(--text-main); margin-bottom: 10px;">Commissions</h2>
-            <p>Ready for your guidelines, payment matrix, and terms of service text!</p>
+        <!-- Main Title Outside Div -->
+        <h1 class="page-title">Commissions</h1>
+
+        <!-- Guidelines Content Box -->
+        <main id="guidelines" class="content-box">
+            <h2 class="section-header">Information & Guidelines</h2>
+            <p class="section-subtitle">My commissions follow a simple 5-step process:</p>
+
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Request</h3>
+                        <p>Fill out the Commission form with your project brief, preferred deadline, and contact details.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Contract & Pricing</h3>
+                        <p>If your request is accepted, you will receive an email with the final price (or price range), and a digital contract to sign for our mutual protection.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Deposit</h3>
+                        <p>Once everything is set for work to begin in your turn, a 25% non-refundable upfront deposit is required. Work begins as soon as both the signed contract and deposit are confirmed.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Drafts & Revisions</h3>
+                        <p>You will receive watermarked pitches/ drafts for feedback and minor adjustments within the scope of our agreed brief.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Final Delivery</h3>
+                        <p>Upon final approval, the remaining 75% balance (plus any requested add-ons) is paid, and you will receive your clean, unwatermarked high-resolution file(s).</p>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <footer>
