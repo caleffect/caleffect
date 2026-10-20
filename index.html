@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Commissions</title>
+    <title>caleffect | Commissions</title>
     <style>
         :root {
             --bg: #0f0f11;
@@ -47,6 +47,9 @@
             border-radius: 20px;
             margin-bottom: 25px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .avatar {
@@ -54,7 +57,7 @@
             height: 90px;
             border-radius: 50%;
             background: #25252e;
-            margin: 0 auto 15px auto;
+            margin-bottom: 15px;
             border: 2px solid var(--accent);
             display: flex;
             align-items: center;
@@ -63,25 +66,44 @@
         }
 
         h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             letter-spacing: -0.5px;
-            margin-bottom: 6px;
+            margin-bottom: 12px;
         }
 
-        p.subtitle {
-            color: var(--text-sub);
-            font-size: 0.95rem;
+        /* Social Links */
+        .socials {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 4px;
         }
 
-        .status-badge {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 4px 12px;
-            background: rgba(255, 255, 255, 0.08);
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
+            border-radius: 50%;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .social-icon:hover {
+            background: var(--accent);
+            color: #000000;
+            border-color: var(--accent);
+            transform: translateY(-2px);
         }
 
         /* Navigation */
@@ -152,9 +174,15 @@
     <div class="wrapper">
         <header>
             <div class="avatar">✂️</div>
-            <h1>Your Name / Handle</h1>
-            <p class="subtitle">Video & Motion Editing Commissions</p>
-            <span class="status-badge">✦ COMMISSIONS OPEN ✦</span>
+            <h1>caleffect</h1>
+            
+            <div class="socials">
+                <a href="https://www.tiktok.com/@caleffect" target="_blank" rel="noopener noreferrer" class="social-icon" title="TikTok">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17h0A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14z"/>
+                    </svg>
+                </a>
+            </div>
         </header>
 
         <nav>
@@ -182,7 +210,7 @@
         </section>
 
         <footer>
-            <p>© 2026 • Video Editing Commissions</p>
+            <p>© 2026 • caleffect</p>
         </footer>
     </div>
 
