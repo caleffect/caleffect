@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>caleffect | Commissions</title>
+    <title>caleffect | Services</title>
     <style>
         :root {
             --bg: #0f0f11;
@@ -12,6 +12,8 @@
             --text-main: #f0f0f3;
             --text-sub: #a0a0aa;
             --border: #2a2a32;
+            --green: #4ade80;
+            --red: #f87171;
         }
 
         * {
@@ -33,7 +35,7 @@
 
         /* Container */
         .wrapper {
-            max-width: 900px;
+            max-width: 700px;
             width: 100%;
             margin-top: 20px;
         }
@@ -103,57 +105,68 @@
             transform: translateY(-2px);
         }
 
-        /* Navigation */
-        nav {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
+        /* Services Box */
+        .services-box {
             background: var(--card-bg);
             border: 1px solid var(--border);
-            color: var(--text-sub);
-            padding: 10px 20px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-
-        .nav-btn:hover, .nav-btn.active {
-            color: var(--accent);
-            border-color: var(--accent);
-            background: #22222a;
-        }
-
-        /* Content Sections */
-        .tab-content {
-            display: none;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 30px;
             border-radius: 20px;
+            padding: 25px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
+        /* Service Button Cards */
+        .service-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Hover effect for available services */
+        .service-card.available:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            transform: translateY(-2px);
         }
 
-        h2 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
+        /* Disabled state for unavailable services */
+        .service-card.unavailable {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Badges */
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .badge.available {
+            color: var(--green);
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .badge.unavailable {
+            color: var(--red);
+            background: rgba(248, 113, 113, 0.1);
+            border: 1px solid rgba(248, 113, 113, 0.3);
         }
 
         /* Footer */
@@ -182,43 +195,40 @@
             </div>
         </header>
 
-        <nav>
-            <button class="nav-btn active" onclick="switchTab('process')">Process</button>
-            <button class="nav-btn" onclick="switchTab('pricing')">Pricing</button>
-            <button class="nav-btn" onclick="switchTab('tos')">Terms of Service</button>
-        </nav>
+        <!-- Main Services Box -->
+        <main class="services-box">
+            <!-- Available Option -->
+            <a href="#" class="service-card available">
+                <span>Commissions</span>
+                <span class="badge available">Available</span>
+            </a>
 
-        <!-- Process Page -->
-        <section id="process" class="tab-content active">
-            <h2>Information & Guidelines</h2>
-            <p style="color: var(--text-sub);">Simple 5-step process overview coming soon...</p>
-        </section>
+            <!-- Unavailable Options -->
+            <div class="service-card unavailable">
+                <span>Audio Promo</span>
+                <span class="badge unavailable">Unavailable</span>
+            </div>
 
-        <!-- Pricing Page -->
-        <section id="pricing" class="tab-content">
-            <h2>Pricing & Payment Details</h2>
-            <p style="color: var(--text-sub);">Interactive duration & complexity price table coming soon...</p>
-        </section>
+            <div class="service-card unavailable">
+                <span>Publicity</span>
+                <span class="badge unavailable">Unavailable</span>
+            </div>
 
-        <!-- TOS Page -->
-        <section id="tos" class="tab-content">
-            <h2>Terms of Service & Policies</h2>
-            <p style="color: var(--text-sub);">Detailed policies and guidelines coming soon...</p>
-        </section>
+            <div class="service-card unavailable">
+                <span>Short Video Work</span>
+                <span class="badge unavailable">Unavailable</span>
+            </div>
+
+            <div class="service-card unavailable">
+                <span>Long Video Work</span>
+                <span class="badge unavailable">Unavailable</span>
+            </div>
+        </main>
 
         <footer>
             <p>© 2026 • caleffect</p>
         </footer>
     </div>
 
-    <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
-        }
-    </script>
 </body>
 </html>
