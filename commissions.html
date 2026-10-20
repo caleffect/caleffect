@@ -144,15 +144,6 @@
             line-height: 1.5;
         }
 
-        .sub-heading {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin: 25px 0 12px 0;
-            color: var(--text-main);
-            border-left: 3px solid var(--accent);
-            padding-left: 10px;
-        }
-
         /* Guidelines Steps */
         .steps-container {
             display: flex;
@@ -193,27 +184,6 @@
             color: var(--text-sub);
             font-size: 0.92rem;
             line-height: 1.6;
-        }
-
-        .deposit-list {
-            list-style: none;
-            margin-bottom: 25px;
-        }
-
-        .deposit-list li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            color: var(--text-sub);
-            font-size: 0.95rem;
-        }
-
-        .deposit-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
         }
 
         /* Pricing Matrix Table */
@@ -355,35 +325,36 @@
             color: #a0a0aa;
         }
 
-        /* Fee Cards & TOS Cards */
-        .fees-grid, .tos-grid {
+        /* Standardized Section Card Layout */
+        .info-cards-grid {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 18px;
+            margin-top: 20px;
         }
 
-        .fee-card, .tos-card {
+        .info-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 14px;
+            padding: 22px;
         }
 
-        .fee-card h4, .tos-card h4 {
+        .info-card h4 {
             color: var(--text-main);
             font-size: 1.05rem;
+            font-weight: 600;
             margin-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 8px;
         }
 
-        .tos-card ul {
+        .info-card ul {
             list-style: none;
             padding: 0;
         }
 
-        .tos-card li {
+        .info-card li {
             position: relative;
             padding-left: 18px;
             margin-bottom: 12px;
@@ -392,11 +363,11 @@
             line-height: 1.6;
         }
 
-        .tos-card li:last-child {
+        .info-card li:last-child {
             margin-bottom: 0;
         }
 
-        .tos-card li::before {
+        .info-card li::before {
             content: "•";
             position: absolute;
             left: 0;
@@ -404,7 +375,7 @@
             font-weight: bold;
         }
 
-        .tos-card li strong {
+        .info-card li strong {
             color: var(--text-main);
         }
 
@@ -500,15 +471,25 @@
         <!-- Pricing & Payment Section -->
         <section id="payment" class="content-box">
             <h2 class="section-header">Pricing & Payment Details</h2>
-            
-            <h3 class="sub-heading">Payment Method</h3>
-            <p class="section-subtitle">All payments are handled securely via PayPal in EUR(€).</p>
 
-            <h3 class="sub-heading">Payment Structure</h3>
-            <ul class="deposit-list">
-                <li>25% Upfront Deposit (Non-Refundable)</li>
-                <li>75% Final Deposit</li>
-            </ul>
+            <div class="info-cards-grid" style="margin-top: 0; margin-bottom: 25px;">
+                <!-- Payment Method Card -->
+                <div class="info-card">
+                    <h4>Payment Method</h4>
+                    <ul>
+                        <li>All payments are handled securely via PayPal in EUR (€).</li>
+                    </ul>
+                </div>
+
+                <!-- Payment Structure Card -->
+                <div class="info-card">
+                    <h4>Payment Structure</h4>
+                    <ul>
+                        <li><strong>25% Upfront Deposit:</strong> Non-Refundable, required to begin work.</li>
+                        <li><strong>75% Final Deposit:</strong> Paid upon final approval of watermarked drafts.</li>
+                    </ul>
+                </div>
+            </div>
 
             <!-- Pricing Matrix Table -->
             <div class="table-container">
@@ -601,26 +582,16 @@
                 </table>
             </div>
 
-            <h3 class="sub-heading">Additional Payment & Fees</h3>
-            <div class="fees-grid">
-                <div class="fee-card">
-                    <h4>Project File Add-on</h4>
-                    <p>10€ - 30€ variable depending on commission level and asset complexity.</p>
-                </div>
-
-                <div class="fee-card">
-                    <h4>Rush Fee (Tight Deadline)</h4>
-                    <p>If you need your project moved up in my queue or delivered on a short deadline, a rush fee will be added depending on urgency and my schedule, capped at a maximum 25% fee of the base price.</p>
-                </div>
-
-                <div class="fee-card">
-                    <h4>Major Scope Change Fee</h4>
-                    <p>If mid-project you request changes that stray significantly from our agreed brief, and I have the availability and skills to accept them, a percentage fee will be calculated based on the extra work required, capped at 25% unless it elevates to a higher commission level. You will receive an updated quote to approve before any extra work begins. If declined, we can either stick to the original brief or proceed with cancellation as outlined in my policies.</p>
-                </div>
-
-                <div class="fee-card">
-                    <h4>Project Restart Fee</h4>
-                    <p>If a project is placed on hold due to client inactivity (14+ consecutive days without prior notice) and you wish to reactivate it, a fee up to 15% of the base price may apply to resume work, subject to queue availability.</p>
+            <!-- Additional Payment & Fees Card Container -->
+            <div class="info-cards-grid">
+                <div class="info-card">
+                    <h4>Additional Payment & Fees</h4>
+                    <ul>
+                        <li><strong>Project File Add-on:</strong> 10€ - 30€ variable depending on commission level and asset complexity.</li>
+                        <li><strong>Rush Fee (Tight Deadline):</strong> If you need your project moved up in my queue or delivered on a short deadline, a rush fee will be added depending on urgency and schedule, capped at a maximum 25% fee of the base price.</li>
+                        <li><strong>Major Scope Change Fee:</strong> If mid-project you request changes that stray significantly from our agreed brief, and I have availability to accept them, a percentage fee will be calculated based on extra work, capped at 25% unless it elevates to a higher commission level. You will receive an updated quote to approve before extra work begins. If declined, we can stick to the original brief or proceed with cancellation.</li>
+                        <li><strong>Project Restart Fee:</strong> If a project is placed on hold due to client inactivity (14+ consecutive days without prior notice) and you wish to reactivate it, a fee up to 15% of the base price may apply to resume work, subject to queue availability.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -629,9 +600,9 @@
         <section id="tos" class="content-box">
             <h2 class="section-header">Terms of Service & Policies</h2>
             
-            <div class="tos-grid">
+            <div class="info-cards-grid">
                 <!-- Eligibility -->
-                <div class="tos-card">
+                <div class="info-card">
                     <h4>Eligibility & Client Requirements</h4>
                     <ul>
                         <li><strong>Age Requirement:</strong> You must be 18 years or older (or the age of majority in your jurisdiction) to sign the agreement and make payments. If you are a minor, a parent or legal guardian must review, sign the contract, and complete all transactions on your behalf.</li>
@@ -641,7 +612,7 @@
                 </div>
 
                 <!-- Client Communication & Resources -->
-                <div class="tos-card">
+                <div class="info-card">
                     <h4>Client Communication, Inactivity & Resources</h4>
                     <ul>
                         <li><strong>Provided Resources & Quality:</strong> All project materials (videos, audio files, photos, logos) must be provided by the client. The quality, resolution, and overall outcome of the final edit directly depend on the quality of the resources you supply, as I don’t rely on quality-enhancing apps.</li>
@@ -651,7 +622,7 @@
                 </div>
 
                 <!-- Queue & Delivery Timeline -->
-                <div class="tos-card">
+                <div class="info-card">
                     <h4>Queue & Delivery Timeline</h4>
                     <ul>
                         <li><strong>Queue Line & Payment Timing:</strong> Commissions are worked on in the order they are accepted. Once approved, you will sign the contract to reserve your place in line, but your 25% deposit will only be requested when it's officially your turn for work to start.</li>
@@ -665,7 +636,7 @@
                 </div>
 
                 <!-- Payment & Deposit Policy -->
-                <div class="tos-card">
+                <div class="info-card">
                     <h4>Payment & Deposit Policy</h4>
                     <ul>
                         <li><strong>PayPal Only:</strong> All payments are invoiced and paid securely through PayPal in EUR (€).</li>
@@ -676,7 +647,7 @@
                 </div>
 
                 <!-- Revisions & Scope Changes -->
-                <div class="tos-card">
+                <div class="info-card">
                     <h4>Revisions & Scope Changes</h4>
                     <ul>
                         <li><strong>Included Revisions:</strong> Minor tweaks within the agreed brief are allowed throughout the pitches.</li>
@@ -685,7 +656,7 @@
                 </div>
 
                 <!-- Cancellation Policy -->
-                <div class="tos-card">
+                <div class="info-card">
                     <h4>Cancellation Policy</h4>
                     <ul>
                         <li><strong>By Client or Seller (Scope Deviation):</strong> If changes deviate heavily from what was agreed upon, or go beyond my technical capabilities, I reserve the right to cancel the commission if agreed upon, after discussing it with you. You will not owe the remaining 75% balance, but the 25% deposit remains non-refundable.</li>
@@ -694,7 +665,7 @@
                 </div>
 
                 <!-- Promotional Rights & Portfolio Use -->
-                <div class="tos-card">
+                <div class="info-card">
                     <h4>Promotional Rights & Portfolio Use</h4>
                     <ul>
                         <li><strong>Private Individuals / Non-Public Figures:</strong> I retain full rights to edit, modify, adjust project files, and use clips for my own promotional materials and social media portfolios.</li>
