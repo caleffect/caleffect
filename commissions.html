@@ -21,6 +21,10 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg);
             color: var(--text-main);
@@ -40,7 +44,11 @@
 
         /* Navigation Bar Box */
         .nav-bar {
-            background: var(--card-bg);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            background: rgba(24, 24, 28, 0.95);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 16px 24px;
@@ -48,7 +56,7 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
             flex-wrap: wrap;
             gap: 12px;
         }
@@ -106,7 +114,7 @@
             border-color: var(--border);
         }
 
-        /* Page Title (Outside Div) */
+        /* Page Title */
         .page-title {
             font-size: 2.2rem;
             font-weight: 700;
@@ -123,7 +131,8 @@
             border-radius: 20px;
             padding: 35px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            scroll-margin-top: 100px;
         }
 
         .section-header {
@@ -138,6 +147,15 @@
             font-size: 0.95rem;
             margin-bottom: 25px;
             line-height: 1.5;
+        }
+
+        .sub-heading {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin: 25px 0 12px 0;
+            color: var(--text-main);
+            border-left: 3px solid var(--accent);
+            padding-left: 10px;
         }
 
         /* Steps List */
@@ -182,97 +200,67 @@
             line-height: 1.6;
         }
 
-        /* Footer */
-        footer {
-            margin-top: auto;
-            padding: 30px 0 10px 0;
-            text-align: center;
-            color: var(--text-sub);
-            font-size: 0.8rem;
+        /* Payment Structure Bullets */
+        .deposit-list {
+            list-style: none;
+            margin-bottom: 25px;
         }
-    </style>
-</head>
-<body>
 
-    <div class="wrapper">
-        <!-- Navigation Bar -->
-        <nav class="nav-bar">
-            <!-- Left: Arrow + Home Icon -->
-            <a href="index.html" class="home-btn" title="Back to Home">
-                <span>←</span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 17-14 32.1-31 32.1h-96c-17 0-32-15-32-32V352h-64v96c0 17-15 32-32 32H128c-17 0-31-15-31-32l.7-160.2H65c-17 0-32-14.1-32-32.1 0-9 3-17 10-24L267.3 14.3c11.6-11 31.8-11 43.4 0l224.3 217.2c7.2 7 10.8 15 10.8 24z"/>
-                </svg>
-            </a>
+        .deposit-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
 
-            <!-- Right: Section Buttons -->
-            <div class="nav-links">
-                <a href="#guidelines" class="nav-link-btn">Guidelines</a>
-                <a href="#payment" class="nav-link-btn">Payment</a>
-                <a href="#tos" class="nav-link-btn">TOS</a>
-            </div>
-        </nav>
+        .deposit-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
 
-        <!-- Main Title Outside Div -->
-        <h1 class="page-title">Commissions</h1>
+        /* 6x4 Table Styling */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0 30px 0;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
 
-        <!-- Guidelines Content Box -->
-        <main id="guidelines" class="content-box">
-            <h2 class="section-header">Information & Guidelines</h2>
-            <p class="section-subtitle">My commissions follow a simple 5-step process:</p>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
 
-            <div class="steps-container">
-                <!-- Step 1 -->
-                <div class="step-item">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Request</h3>
-                        <p>Fill out the Commission form with your project brief, preferred deadline, and contact details.</p>
-                    </div>
-                </div>
+        th, td {
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            color: var(--text-sub);
+        }
 
-                <!-- Step 2 -->
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Contract & Pricing</h3>
-                        <p>If your request is accepted, you will receive an email with the final price (or price range), and a digital contract to sign for our mutual protection.</p>
-                    </div>
-                </div>
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            font-weight: 600;
+        }
 
-                <!-- Step 3 -->
-                <div class="step-item">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Deposit</h3>
-                        <p>Once everything is set for work to begin in your turn, a 25% non-refundable upfront deposit is required. Work begins as soon as both the signed contract and deposit are confirmed.</p>
-                    </div>
-                </div>
+        tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.01);
+        }
 
-                <!-- Step 4 -->
-                <div class="step-item">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Drafts & Revisions</h3>
-                        <p>You will receive watermarked pitches/ drafts for feedback and minor adjustments within the scope of our agreed brief.</p>
-                    </div>
-                </div>
+        /* Fee Cards */
+        .fees-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
 
-                <!-- Step 5 -->
-                <div class="step-item">
-                    <div class="step-number">5</div>
-                    <div class="step-content">
-                        <h3>Final Delivery</h3>
-                        <p>Upon final approval, the remaining 75% balance (plus any requested add-ons) is paid, and you will receive your clean, unwatermarked high-resolution file(s).</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <p>© 2026 • caleffect</p>
-        </footer>
-    </div>
-
-</body>
-</html>
+        .fee-card {
+            background: rgba(255, 255, 255, 0.
