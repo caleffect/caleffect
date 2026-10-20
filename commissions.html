@@ -41,6 +41,7 @@
             margin-top: 20px;
         }
 
+        /* Navigation Bar Box */
         .nav-bar {
             position: sticky;
             top: 20px;
@@ -152,6 +153,7 @@
             padding-left: 10px;
         }
 
+        /* Guidelines Steps */
         .steps-container {
             display: flex;
             flex-direction: column;
@@ -226,7 +228,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            text-align: left; /* Left-align all prices and labels */
+            text-align: left;
             font-size: 0.92rem;
         }
 
@@ -247,83 +249,99 @@
             width: 22.6%;
         }
 
-        .row-label {
-            background: rgba(255, 255, 255, 0.04);
-            color: var(--text-main);
-            font-weight: 600;
-            width: 32%;
-        }
-
-        /* Dropdown Level Headers */
-        .lvl-header {
+        /* Toggle Button in Table Corner */
+        .lvl-toggle-btn {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--accent);
             cursor: pointer;
             user-select: none;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 6px;
-            transition: color 0.2s ease;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
         }
 
-        .lvl-header:hover {
-            color: var(--accent);
+        .lvl-toggle-btn:hover {
+            background: var(--accent);
+            color: #000000;
+            border-color: var(--accent);
         }
 
         .arrow-icon {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             transition: transform 0.25s ease;
-            display: inline-block;
         }
 
-        th.open .arrow-icon {
+        .lvl-toggle-btn.open .arrow-icon {
             transform: rotate(180deg);
         }
 
-        /* Collapsible Level Content */
-        .lvl-details {
+        /* Collapsible Shared Info Row */
+        .info-panel-row {
             display: none;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-weight: 400;
-            text-transform: none;
-            font-size: 0.78rem;
-            line-height: 1.45;
+        }
+
+        .info-panel-row.open {
+            display: table-row;
+        }
+
+        .info-panel-cell {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+        }
+
+        .lvl-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            font-size: 0.82rem;
+            line-height: 1.5;
             color: var(--text-sub);
-            text-align: left;
         }
 
-        th.open .lvl-details {
-            display: block;
+        .lvl-info-box h4 {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 4px;
         }
 
-        .lvl-desc {
+        .lvl-info-box p {
             font-style: italic;
             color: #d1d1d6;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        .lvl-list {
+        .lvl-info-box ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        .lvl-list li {
-            margin-bottom: 8px;
+        .lvl-info-box li {
+            margin-bottom: 6px;
             position: relative;
             padding-left: 10px;
         }
 
-        .lvl-list li::before {
+        .lvl-info-box li::before {
             content: "•";
             position: absolute;
             left: 0;
             color: var(--accent);
         }
 
-        .lvl-list strong {
+        .row-label {
+            background: rgba(255, 255, 255, 0.04);
             color: var(--text-main);
+            font-weight: 600;
+            width: 32%;
         }
 
         .optional-row td {
@@ -337,31 +355,68 @@
             color: #a0a0aa;
         }
 
-        /* Fee Cards */
-        .fees-grid {
+        /* Fee Cards & TOS Cards */
+        .fees-grid, .tos-grid {
             display: flex;
             flex-direction: column;
             gap: 15px;
             margin-top: 15px;
         }
 
-        .fee-card {
+        .fee-card, .tos-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 18px;
+            padding: 20px;
         }
 
-        .fee-card h4 {
+        .fee-card h4, .tos-card h4 {
             color: var(--text-main);
-            font-size: 1rem;
-            margin-bottom: 6px;
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 6px;
         }
 
-        .fee-card p {
+        .tos-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tos-card li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 12px;
             color: var(--text-sub);
             font-size: 0.9rem;
-            line-height: 1.5;
+            line-height: 1.6;
+        }
+
+        .tos-card li:last-child {
+            margin-bottom: 0;
+        }
+
+        .tos-card li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .tos-card li strong {
+            color: var(--text-main);
+        }
+
+        .tos-note {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--accent);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.88rem;
+            color: #d1d1d6;
+            margin-top: 15px;
+            font-style: italic;
         }
 
         footer {
@@ -376,6 +431,7 @@
 <body>
 
     <div class="wrapper">
+        <!-- Navigation Bar -->
         <nav class="nav-bar">
             <a href="index.html" class="home-btn" title="Back to Home">
                 <span>←</span>
@@ -393,6 +449,7 @@
 
         <h1 class="page-title">Commissions</h1>
 
+        <!-- Information & Guidelines Section -->
         <section id="guidelines" class="content-box">
             <h2 class="section-header">Information & Guidelines</h2>
             <p class="section-subtitle">My commissions follow a simple 5-step process:</p>
@@ -440,6 +497,7 @@
             </div>
         </section>
 
+        <!-- Pricing & Payment Section -->
         <section id="payment" class="content-box">
             <h2 class="section-header">Pricing & Payment Details</h2>
             
@@ -457,55 +515,55 @@
                 <table>
                     <thead>
                         <tr>
-                            <th style="background: rgba(255, 255, 255, 0.02); width: 32%;"></th>
-                            
-                            <!-- Lvl 1 Dropdown Header -->
-                            <th id="th-lvl1">
-                                <div class="lvl-header" onclick="toggleDropdown('th-lvl1')">
-                                    <span>Lvl 1</span>
+                            <!-- Top Left Square: Interactive Dropdown Button -->
+                            <th style="background: rgba(255, 255, 255, 0.02); width: 32%;">
+                                <div id="lvl-toggle-btn" class="lvl-toggle-btn" onclick="toggleInfoPanel()">
+                                    <span>Lvl Info</span>
                                     <span class="arrow-icon">▼</span>
                                 </div>
-                                <div class="lvl-details">
-                                    <p class="lvl-desc">Best for standard, clean edits using mostly static assets.</p>
-                                    <ul class="lvl-list">
-                                        <li><strong>Primary Media:</strong> Primarily photo-based edits, although video is accepted, as clipping is required, it shouldn't be the base of the edit in this level.</li>
-                                        <li><strong>Transitions:</strong> Simple to medium complexity transitions based on my editing standard.</li>
-                                        <li><strong>Elements:</strong> Includes 2D and/or 2.5D visual elements.</li>
-                                    </ul>
-                                </div>
                             </th>
+                            <th>Lvl 1</th>
+                            <th>Lvl 2</th>
+                            <th>Lvl 3</th>
+                        </tr>
+                        <!-- Collapsible Shared Info Row -->
+                        <tr id="info-panel-row" class="info-panel-row">
+                            <td colspan="4" class="info-panel-cell">
+                                <div class="lvl-info-grid">
+                                    <!-- Level 1 Info -->
+                                    <div class="lvl-info-box">
+                                        <h4>Level 1</h4>
+                                        <p>Best for standard, clean edits using mostly static assets.</p>
+                                        <ul>
+                                            <li><strong>Primary Media:</strong> Photo-based edits primarily. Video is accepted if clipping is required, but shouldn't be the base of the edit.</li>
+                                            <li><strong>Transitions:</strong> Simple to medium complexity transitions.</li>
+                                            <li><strong>Elements:</strong> Includes 2D and/or 2.5D visual elements.</li>
+                                        </ul>
+                                    </div>
 
-                            <!-- Lvl 2 Dropdown Header -->
-                            <th id="th-lvl2">
-                                <div class="lvl-header" onclick="toggleDropdown('th-lvl2')">
-                                    <span>Lvl 2</span>
-                                    <span class="arrow-icon">▼</span>
-                                </div>
-                                <div class="lvl-details">
-                                    <p class="lvl-desc">Best for dynamic edits combining photo and video content.</p>
-                                    <ul class="lvl-list">
-                                        <li><strong>Primary Media:</strong> Can be both photo and video-based edits.</li>
-                                        <li><strong>Transitions:</strong> Medium to hard/advanced transitions based on my editing standard.</li>
-                                        <li><strong>Elements:</strong> Includes 2D and 2.5D elements designed to simulate simple 3D-like depth and environments.</li>
-                                    </ul>
-                                </div>
-                            </th>
+                                    <!-- Level 2 Info -->
+                                    <div class="lvl-info-box">
+                                        <h4>Level 2</h4>
+                                        <p>Best for dynamic edits combining photo and video content.</p>
+                                        <ul>
+                                            <li><strong>Primary Media:</strong> Both photo and video-based edits.</li>
+                                            <li><strong>Transitions:</strong> Medium to hard/advanced transitions.</li>
+                                            <li><strong>Elements:</strong> Includes 2D and 2.5D elements simulating simple 3D-like depth and environments.</li>
+                                        </ul>
+                                    </div>
 
-                            <!-- Lvl 3 Dropdown Header -->
-                            <th id="th-lvl3">
-                                <div class="lvl-header" onclick="toggleDropdown('th-lvl3')">
-                                    <span>Lvl 3</span>
-                                    <span class="arrow-icon">▼</span>
+                                    <!-- Level 3 Info -->
+                                    <div class="lvl-info-box">
+                                        <h4>Level 3</h4>
+                                        <p>Best for high-energy, complex edits with deep visual dimension.</p>
+                                        <ul>
+                                            <li><strong>Primary Media:</strong> Both photo and video-based edits.</li>
+                                            <li><strong>Transitions:</strong> Highly dynamic, advanced, and complex transitions.</li>
+                                            <li><strong>Elements:</strong> Includes 2D, 2.5D, full 3D elements, 3D depth, and complex 3D scene creation.</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="lvl-details">
-                                    <p class="lvl-desc">Best for high-energy, complex edits with deep visual dimension.</p>
-                                    <ul class="lvl-list">
-                                        <li><strong>Primary Media:</strong> Can be both photo and video-based edits.</li>
-                                        <li><strong>Transitions:</strong> Highly dynamic, advanced, and complex transitions based on my editing standard.</li>
-                                        <li><strong>Elements:</strong> Includes 2D, 2.5D, and full 3D elements, 3D-like depth and environments, as well as complex 3D scene creation and spatial composition.</li>
-                                    </ul>
-                                </div>
-                            </th>
+                            </td>
                         </tr>
                     </thead>
                     <tbody>
@@ -567,15 +625,98 @@
             </div>
         </section>
 
+        <!-- Terms of Service & Policies Section -->
+        <section id="tos" class="content-box">
+            <h2 class="section-header">Terms of Service & Policies</h2>
+            
+            <div class="tos-grid">
+                <!-- Eligibility -->
+                <div class="tos-card">
+                    <h4>Eligibility & Client Requirements</h4>
+                    <ul>
+                        <li><strong>Age Requirement:</strong> You must be 18 years or older (or the age of majority in your jurisdiction) to sign the agreement and make payments. If you are a minor, a parent or legal guardian must review, sign the contract, and complete all transactions on your behalf.</li>
+                        <li><strong>Confidentiality & Unreleased Content:</strong> If your commission involves unannounced projects, assets, or releases, please inform me in your brief. I will gladly delay posting any promotional clips or portfolio work until after your official launch/reveal date. Otherwise, I reserve the right to share the completed work on my portfolio or social media within 48 hours of the final transaction.</li>
+                        <li><strong>AI & Authorship:</strong> Delivered work and project files may not be fed into AI generators, machine-learning models, or scrapers. While you own the rights to use the final product, you may not claim direct authorship (creation rights) over the work.</li>
+                    </ul>
+                </div>
+
+                <!-- Client Communication & Resources -->
+                <div class="tos-card">
+                    <h4>Client Communication, Inactivity & Resources</h4>
+                    <ul>
+                        <li><strong>Provided Resources & Quality:</strong> All project materials (videos, audio files, photos, logos) must be provided by the client. The quality, resolution, and overall outcome of the final edit directly depend on the quality of the resources you supply, as I don’t rely on quality-enhancing apps.</li>
+                        <li><strong>Communication Channels:</strong> Formal updates, pitching drafts, and contracts are handled primarily via email. However, you can select your preferred secondary platform in the commission form for quick questions and informal status updates.</li>
+                        <li><strong>Inactivity Rule:</strong> Timely feedback is required to keep your project moving forward. If a client does not respond to communication or draft feedback requests for more than 14 consecutive days without prior notice, the project will be put on hold and your spot in queue may be forfeited. Reopening an inactive project may be subject to availability or a restart fee.</li>
+                    </ul>
+                </div>
+
+                <!-- Queue & Delivery Timeline -->
+                <div class="tos-card">
+                    <h4>Queue & Delivery Timeline</h4>
+                    <ul>
+                        <li><strong>Queue Line & Payment Timing:</strong> Commissions are worked on in the order they are accepted. Once approved, you will sign the contract to reserve your place in line, but your 25% deposit will only be requested when it's officially your turn for work to start.</li>
+                        <li><strong>Flexibility:</strong> If the waiting time in the queue becomes too long for your schedule, you are free to cancel or leave the queue at any time before paying the deposit with no fee or penalty; I only kindly ask to be notified.</li>
+                        <li><strong>Project Duration:</strong> Once your deposit is paid and work officially begins, completion typically takes anywhere from a few weeks to over a month depending on project complexity and my workload.</li>
+                        <li><strong>Rush Requests:</strong> Moving up or skipping the queue line requires the additional Rush Fee. Please note that rush requests will rarely be accepted due to limited availability, but may be considered on a case-by-case basis.</li>
+                    </ul>
+                    <div class="tos-note">
+                        Note: Please keep in mind that doing commissions is not my full time job and I am a solo creator.
+                    </div>
+                </div>
+
+                <!-- Payment & Deposit Policy -->
+                <div class="tos-card">
+                    <h4>Payment & Deposit Policy</h4>
+                    <ul>
+                        <li><strong>PayPal Only:</strong> All payments are invoiced and paid securely through PayPal in EUR (€).</li>
+                        <li><strong>25% Non-Refundable Deposit:</strong> Required before work begins. This deposit covers administrative setup, research, and initial pitching time, and is strictly non-refundable under all circumstances once active work has started.</li>
+                        <li><strong>75% Final Balance:</strong> Due upon final approval of the watermarked pitch/drafts. Clean, unwatermarked files are delivered only after the remaining balance is paid in full.</li>
+                        <li><strong>Digital Product & Dispute Protection:</strong> All deliverables are non-tangible digital files. Once final unwatermarked files are delivered upon full payment, the transaction is considered complete and final. Unauthorized PayPal chargebacks or false claims will result in immediate termination of all usage rights, blacklisting, and submission of the signed contract and delivery logs to PayPal.</li>
+                    </ul>
+                </div>
+
+                <!-- Revisions & Scope Changes -->
+                <div class="tos-card">
+                    <h4>Revisions & Scope Changes</h4>
+                    <ul>
+                        <li><strong>Included Revisions:</strong> Minor tweaks within the agreed brief are allowed throughout the pitches.</li>
+                        <li><strong>Out-of-Scope Changes:</strong> If requested edits stray significantly from the original brief, an additional percentage fee will be calculated, capped at 25% unless it moves up a commission level. If we both agree to proceed (subject to my skill set and schedule), work will continue under an updated quote.</li>
+                    </ul>
+                </div>
+
+                <!-- Cancellation Policy -->
+                <div class="tos-card">
+                    <h4>Cancellation Policy</h4>
+                    <ul>
+                        <li><strong>By Client or Seller (Scope Deviation):</strong> If changes deviate heavily from what was agreed upon, or go beyond my technical capabilities, I reserve the right to cancel the commission if agreed upon, after discussing it with you. You will not owe the remaining 75% balance, but the 25% deposit remains non-refundable.</li>
+                        <li><strong>Watermark Security:</strong> All drafts/pitches are sent watermarked until final payment is completed.</li>
+                    </ul>
+                </div>
+
+                <!-- Promotional Rights & Portfolio Use -->
+                <div class="tos-card">
+                    <h4>Promotional Rights & Portfolio Use</h4>
+                    <ul>
+                        <li><strong>Private Individuals / Non-Public Figures:</strong> I retain full rights to edit, modify, adjust project files, and use clips for my own promotional materials and social media portfolios.</li>
+                        <li><strong>Public Figures:</strong> Finished commissions featuring public figures may be posted to my promotional channels/portfolio, with a “Commission for [Client Name/Handle]” tag or watermark.</li>
+                        <li><strong>Project Files:</strong> Source/Project Files remain my intellectual property. When purchased separately as an add-on, ownership of the files becomes shared between us, but I reserve the promotional rights mentioned above. To protect the value of your purchase, if I intend on sharing or distributing said project file, I will not do so for free, or for less than a 50% markup of the price you paid. If you buy the file, you only reserve the right for personal use and to publish it under your accounts; you do not reserve the right to re-sell the product.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <footer>
             <p>© 2026 • caleffect</p>
         </footer>
     </div>
 
     <script>
-        function toggleDropdown(elementId) {
-            const header = document.getElementById(elementId);
-            header.classList.toggle('open');
+        function toggleInfoPanel() {
+            const btn = document.getElementById('lvl-toggle-btn');
+            const panel = document.getElementById('info-panel-row');
+            
+            btn.classList.toggle('open');
+            panel.classList.toggle('open');
         }
     </script>
 </body>
