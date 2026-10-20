@@ -226,7 +226,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            text-align: center;
+            text-align: left; /* Left-align all prices and labels */
             font-size: 0.92rem;
         }
 
@@ -234,6 +234,7 @@
             padding: 14px 16px;
             border: 1px solid var(--border);
             color: var(--text-sub);
+            vertical-align: top;
         }
 
         th {
@@ -243,14 +244,86 @@
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
+            width: 22.6%;
         }
 
         .row-label {
             background: rgba(255, 255, 255, 0.04);
             color: var(--text-main);
             font-weight: 600;
-            text-align: left;
             width: 32%;
+        }
+
+        /* Dropdown Level Headers */
+        .lvl-header {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .lvl-header:hover {
+            color: var(--accent);
+        }
+
+        .arrow-icon {
+            font-size: 0.75rem;
+            transition: transform 0.25s ease;
+            display: inline-block;
+        }
+
+        th.open .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Collapsible Level Content */
+        .lvl-details {
+            display: none;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 400;
+            text-transform: none;
+            font-size: 0.78rem;
+            line-height: 1.45;
+            color: var(--text-sub);
+            text-align: left;
+        }
+
+        th.open .lvl-details {
+            display: block;
+        }
+
+        .lvl-desc {
+            font-style: italic;
+            color: #d1d1d6;
+            margin-bottom: 10px;
+        }
+
+        .lvl-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lvl-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .lvl-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .lvl-list strong {
+            color: var(--text-main);
         }
 
         .optional-row td {
@@ -384,10 +457,55 @@
                 <table>
                     <thead>
                         <tr>
-                            <th style="background: rgba(255, 255, 255, 0.02);"></th>
-                            <th>Lvl 1</th>
-                            <th>Lvl 2</th>
-                            <th>Lvl 3</th>
+                            <th style="background: rgba(255, 255, 255, 0.02); width: 32%;"></th>
+                            
+                            <!-- Lvl 1 Dropdown Header -->
+                            <th id="th-lvl1">
+                                <div class="lvl-header" onclick="toggleDropdown('th-lvl1')">
+                                    <span>Lvl 1</span>
+                                    <span class="arrow-icon">▼</span>
+                                </div>
+                                <div class="lvl-details">
+                                    <p class="lvl-desc">Best for standard, clean edits using mostly static assets.</p>
+                                    <ul class="lvl-list">
+                                        <li><strong>Primary Media:</strong> Primarily photo-based edits, although video is accepted, as clipping is required, it shouldn't be the base of the edit in this level.</li>
+                                        <li><strong>Transitions:</strong> Simple to medium complexity transitions based on my editing standard.</li>
+                                        <li><strong>Elements:</strong> Includes 2D and/or 2.5D visual elements.</li>
+                                    </ul>
+                                </div>
+                            </th>
+
+                            <!-- Lvl 2 Dropdown Header -->
+                            <th id="th-lvl2">
+                                <div class="lvl-header" onclick="toggleDropdown('th-lvl2')">
+                                    <span>Lvl 2</span>
+                                    <span class="arrow-icon">▼</span>
+                                </div>
+                                <div class="lvl-details">
+                                    <p class="lvl-desc">Best for dynamic edits combining photo and video content.</p>
+                                    <ul class="lvl-list">
+                                        <li><strong>Primary Media:</strong> Can be both photo and video-based edits.</li>
+                                        <li><strong>Transitions:</strong> Medium to hard/advanced transitions based on my editing standard.</li>
+                                        <li><strong>Elements:</strong> Includes 2D and 2.5D elements designed to simulate simple 3D-like depth and environments.</li>
+                                    </ul>
+                                </div>
+                            </th>
+
+                            <!-- Lvl 3 Dropdown Header -->
+                            <th id="th-lvl3">
+                                <div class="lvl-header" onclick="toggleDropdown('th-lvl3')">
+                                    <span>Lvl 3</span>
+                                    <span class="arrow-icon">▼</span>
+                                </div>
+                                <div class="lvl-details">
+                                    <p class="lvl-desc">Best for high-energy, complex edits with deep visual dimension.</p>
+                                    <ul class="lvl-list">
+                                        <li><strong>Primary Media:</strong> Can be both photo and video-based edits.</li>
+                                        <li><strong>Transitions:</strong> Highly dynamic, advanced, and complex transitions based on my editing standard.</li>
+                                        <li><strong>Elements:</strong> Includes 2D, 2.5D, and full 3D elements, 3D-like depth and environments, as well as complex 3D scene creation and spatial composition.</li>
+                                    </ul>
+                                </div>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -454,5 +572,11 @@
         </footer>
     </div>
 
+    <script>
+        function toggleDropdown(elementId) {
+            const header = document.getElementById(elementId);
+            header.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
