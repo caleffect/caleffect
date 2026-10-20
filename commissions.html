@@ -31,50 +31,95 @@
             padding: 20px;
         }
 
+        /* Container */
         .wrapper {
-            max-width: 700px;
+            max-width: 800px;
             width: 100%;
             margin-top: 20px;
         }
 
-        .content-box {
+        /* Navigation Bar Box */
+        .nav-bar {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        p {
-            color: var(--text-sub);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             margin-bottom: 25px;
-            line-height: 1.6;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
-        .back-btn {
-            display: inline-block;
-            padding: 12px 24px;
+        /* Left Side: Home Button */
+        .home-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border);
             border-radius: 12px;
             color: var(--text-main);
             text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 600;
             transition: all 0.2s ease;
         }
 
-        .back-btn:hover {
+        .home-btn svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .home-btn:hover {
             background: var(--accent);
             color: #000000;
             border-color: var(--accent);
+            transform: translateY(-1px);
         }
 
+        /* Right Side: Section Links */
+        .nav-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-link-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-link-btn:hover {
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--border);
+        }
+
+        /* Content Box Placeholder */
+        .content-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            text-align: center;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        /* Footer */
         footer {
             margin-top: auto;
             padding: 30px 0 10px 0;
@@ -87,11 +132,30 @@
 <body>
 
     <div class="wrapper">
-        <div class="content-box">
-            <h1>✦ Edit Commissions ✦</h1>
-            <p>This is a test page for your Edit Commissions info!</p>
-            <a href="index.html" class="back-btn">← Back to Home</a>
-        </div>
+        <!-- Navigation Bar -->
+        <nav class="nav-bar">
+            <!-- Left: Home Arrow + Icon -->
+            <a href="index.html" class="home-btn" title="Back to Home">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <!-- Home Icon SVG -->
+                    <path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 17-14 32.1-31 32.1h-96c-17 0-32-15-32-32V352h-64v96c0 17-15 32-32 32H128c-17 0-31-15-31-32l.7-160.2H65c-17 0-32-14.1-32-32.1 0-9 3-17 10-24L267.3 14.3c11.6-11 31.8-11 43.4 0l224.3 217.2c7.2 7 10.8 15 10.8 24z"/>
+                </svg>
+                <span>← Home</span>
+            </a>
+
+            <!-- Right: Section Buttons -->
+            <div class="nav-links">
+                <a href="#guidelines" class="nav-link-btn">Guidelines</a>
+                <a href="#payment" class="nav-link-btn">Payment</a>
+                <a href="#tos" class="nav-link-btn">TOS</a>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-box">
+            <h2 style="color: var(--text-main); margin-bottom: 10px;">Commissions</h2>
+            <p>Ready for your guidelines, payment matrix, and terms of service text!</p>
+        </main>
 
         <footer>
             <p>© 2026 • caleffect</p>
