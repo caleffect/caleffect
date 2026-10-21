@@ -7,11 +7,11 @@
     <style>
         :root {
             --bg: #0f0f11;
-            --card-bg: #18181c;
+            --card-bg: rgba(184, 184, 184, 0.12); /* Translucent frosted glass panel */
             --accent: #ffffff;
-            --text-main: #f0f0f3;
-            --text-sub: #a0a0aa;
-            --border: #2a2a32;
+            --text-main: #f5f5f7;
+            --text-sub: #a1a1aa;
+            --border: rgba(184, 184, 184, 0.25);
         }
 
         * {
@@ -41,13 +41,14 @@
             margin-top: 20px;
         }
 
-        /* Navigation Bar Box */
+        /* Frosted Glass Navigation Bar Box */
         .nav-bar {
             position: sticky;
             top: 20px;
             z-index: 100;
-            background: rgba(24, 24, 28, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(184, 184, 184, 0.15);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border: 1px solid var(--border);
             border-radius: 20px;
             padding: 16px 24px;
@@ -55,7 +56,7 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
             flex-wrap: wrap;
             gap: 12px;
         }
@@ -65,7 +66,7 @@
             align-items: center;
             gap: 6px;
             padding: 10px 14px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.08);
             border: 1px solid var(--border);
             border-radius: 12px;
             color: var(--text-main);
@@ -86,6 +87,7 @@
             color: #000000;
             border-color: var(--accent);
             transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.25);
         }
 
         .nav-links {
@@ -107,7 +109,7 @@
 
         .nav-link-btn:hover {
             color: var(--accent);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(184, 184, 184, 0.15);
             border-color: var(--border);
         }
 
@@ -120,12 +122,15 @@
             padding-left: 5px;
         }
 
+        /* Frosted Glass Content Boxes */
         .content-box {
             background: var(--card-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 24px;
             padding: 35px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
             margin-bottom: 30px;
             scroll-margin-top: 100px;
         }
@@ -154,8 +159,8 @@
         .step-item {
             display: flex;
             gap: 18px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
+            background: rgba(184, 184, 184, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 14px;
         }
@@ -163,7 +168,7 @@
         .step-number {
             min-width: 32px;
             height: 32px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(184, 184, 184, 0.15);
             border: 1px solid var(--border);
             border-radius: 50%;
             display: flex;
@@ -210,7 +215,7 @@
         }
 
         th {
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(184, 184, 184, 0.15);
             color: var(--text-main);
             font-weight: 700;
             text-transform: uppercase;
@@ -221,7 +226,7 @@
 
         /* Toggle Button in Table Corner */
         .lvl-toggle-btn {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(184, 184, 184, 0.15);
             color: var(--accent);
             cursor: pointer;
             user-select: none;
@@ -261,7 +266,7 @@
         }
 
         .info-panel-cell {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(184, 184, 184, 0.04);
             padding: 20px;
         }
 
@@ -308,21 +313,21 @@
         }
 
         .row-label {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(184, 184, 184, 0.08);
             color: var(--text-main);
             font-weight: 600;
             width: 32%;
         }
 
         .optional-row td {
-            background: rgba(255, 255, 255, 0.015);
-            color: #888894;
+            background: rgba(184, 184, 184, 0.03);
+            color: #a1a1aa;
             font-style: italic;
         }
 
         .optional-row .row-label {
-            background: rgba(255, 255, 255, 0.02);
-            color: #a0a0aa;
+            background: rgba(184, 184, 184, 0.06);
+            color: var(--text-main);
         }
 
         /* Standardized Section Card Layout */
@@ -334,8 +339,8 @@
         }
 
         .info-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
+            background: rgba(184, 184, 184, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 14px;
             padding: 22px;
         }
@@ -345,7 +350,7 @@
             font-size: 1.05rem;
             font-weight: 600;
             margin-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding-bottom: 8px;
         }
 
@@ -380,7 +385,7 @@
         }
 
         .tos-note {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(184, 184, 184, 0.08);
             border-left: 3px solid var(--accent);
             padding: 12px 16px;
             border-radius: 0 8px 8px 0;
@@ -497,7 +502,7 @@
                     <thead>
                         <tr>
                             <!-- Top Left Square: Interactive Dropdown Button -->
-                            <th style="background: rgba(255, 255, 255, 0.02); width: 32%;">
+                            <th style="background: rgba(184, 184, 184, 0.15); width: 32%;">
                                 <div id="lvl-toggle-btn" class="lvl-toggle-btn" onclick="toggleInfoPanel()">
                                     <span>Lvl Info</span>
                                     <span class="arrow-icon">▼</span>
