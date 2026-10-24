@@ -113,13 +113,49 @@
             border-color: var(--border);
         }
 
+        .page-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding-left: 5px;
+            padding-right: 5px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
         .page-title {
             font-size: 2.2rem;
             font-weight: 700;
             letter-spacing: -0.5px;
-            margin-bottom: 20px;
-            text-align: left;
-            padding-left: 5px;
+            margin-bottom: 0;
+        }
+
+        /* Form CTA Button */
+        .form-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-cta-btn:hover {
+            background: var(--accent);
+            color: #000000;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
         }
 
         /* Frosted Glass Content Boxes */
@@ -423,7 +459,13 @@
             </div>
         </nav>
 
-        <h1 class="page-title">Commissions</h1>
+        <div class="page-title-container">
+            <h1 class="page-title">Commissions</h1>
+            <a href="https://forms.gle/6tFUr8eBBADfMABv7" target="_blank" rel="noopener noreferrer" class="form-cta-btn">
+                <span>Request Form</span>
+                <span>↗</span>
+            </a>
+        </div>
 
         <!-- Information & Guidelines Section -->
         <section id="guidelines" class="content-box">
