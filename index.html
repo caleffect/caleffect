@@ -95,6 +95,7 @@
             gap: 12px;
             justify-content: center;
             margin-top: 4px;
+            margin-bottom: 12px;
         }
 
         .social-icon {
@@ -123,6 +124,29 @@
             border-color: var(--accent);
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.25);
+        }
+
+        /* Clickable Copy Email Text */
+        .email-copy-text {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+            padding: 4px 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid transparent;
+        }
+
+        .email-copy-text:hover {
+            color: var(--accent);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .email-copy-text:active {
+            transform: scale(0.96);
         }
 
         /* Frosted Glass Services Container with #B8B8B8 Tint */
@@ -254,14 +278,10 @@
                         <path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17h0A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14z"/>
                     </svg>
                 </a>
-
-                <!-- 3. Email Icon -->
-                <a href="mailto:caleffect@gmail.com" class="social-icon" title="Email Me">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 192L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-192L273.5 321.3c-10.7 8-23.4 12.7-37.5 12.7s-26.8-4.7-37.5-12.7L0 192z"/>
-                    </svg>
-                </a>
             </div>
+
+            <!-- Clickable Email Copy Text -->
+            <span class="email-copy-text" onclick="copyEmailToClipboard()" title="Click to copy email">caleffect@gmail.com</span>
         </header>
 
         <!-- Main Services Box -->
@@ -312,21 +332,38 @@
         </footer>
     </div>
 
-    <!-- Girlfriend Easter Egg Toast Pop-up -->
-    <div id="girlfriend-toast" class="toast-popup">
-        <span>my girlfriend helped me design this hehe</span>
+    <!-- Toast Pop-up Container -->
+    <div id="toast-message" class="toast-popup">
+        <span id="toast-text">my girlfriend helped me design this hehe</span>
     </div>
 
     <script>
         let toastTimeout;
-        function showGirlfriendToast() {
-            const toast = document.getElementById('girlfriend-toast');
+
+        function showToast(text) {
+            const toast = document.getElementById('toast-message');
+            const toastText = document.getElementById('toast-text');
+            
+            toastText.textContent = text;
             toast.classList.add('show');
             
             clearTimeout(toastTimeout);
             toastTimeout = setTimeout(() => {
                 toast.classList.remove('show');
             }, 3000);
+        }
+
+        function showGirlfriendToast() {
+            showToast('my girlfriend helped me design this hehe');
+        }
+
+        function copyEmailToClipboard() {
+            const email = 'caleffect@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                showToast('Email copied to clipboard!');
+            }).catch(() => {
+                showToast('Email copied to clipboard!');
+            });
         }
     </script>
 </body>
