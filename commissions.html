@@ -131,23 +131,23 @@
             margin-bottom: 0;
         }
 
-        /* Form CTA Button */
+        /* Form CTA Button with Glowing Effect */
         .form-cta-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 12px 22px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid var(--accent);
             border-radius: 14px;
             color: var(--text-main);
             text-decoration: none;
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 700;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
         .form-cta-btn:hover {
@@ -155,7 +155,40 @@
             color: #000000;
             border-color: var(--accent);
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Bottom Scroll Button Container */
+        .bottom-cta-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0 20px 0;
+        }
+
+        .bottom-proceed-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: var(--card-bg);
+            border: 1px solid var(--accent);
+            border-radius: 18px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 700;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .bottom-proceed-btn:hover {
+            background: var(--accent);
+            color: #000000;
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
         }
 
         /* Frosted Glass Content Boxes */
@@ -442,7 +475,7 @@
 </head>
 <body>
 
-    <div class="wrapper">
+    <div class="wrapper" id="top">
         <!-- Navigation Bar -->
         <nav class="nav-bar">
             <a href="index.html" class="home-btn" title="Back to Home">
@@ -722,6 +755,14 @@
                 </div>
             </div>
         </section>
+
+        <!-- Bottom Proceed to Form Button -->
+        <div class="bottom-cta-container">
+            <a href="#top" class="bottom-proceed-btn">
+                <span>Proceed to the form</span>
+                <span>↑</span>
+            </a>
+        </div>
 
         <footer>
             <p>I love my girlfriend :P</p>
